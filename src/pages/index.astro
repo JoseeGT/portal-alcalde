@@ -1,16 +1,535 @@
 ---
+import './src/styles/global.css'
 
+import { Image } from 'astro:assets';
+import Camion from '../assets/camion.svg';
+import Colectores from '../assets/colectores.svg';
+import agua from '../assets/agua1.jpg';
+import logoLibertador from '../assets/logo-libertador.png';
+import Ambulancias from '../assets/ambulancias.jpg';
+import Impacto from '../assets/impacto-comunidad.jpg';
+import myImage from '../assets/imagen1.jpg'; 
+import Alcalde from '../assets/alcalde.png';
+import heroImage from '../assets/hero-image.jpg';
+
+// Importamos los datos para llenar el dropdown al construir la página
+import todosLosProyectos from '../data/proyectos.json';
+
+// Obtenemos una lista única de comunidades para el <select>
+const comunidadesUnicas = new Map(
+  todosLosProyectos.map(p => [p.comunidad, { id: p.comunidad, nombre: p.nombreComunidad }])
+);
+const listaComunidades = Array.from(comunidadesUnicas.values());
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+		<title>Vota Gonzalo “Chacho” Diaz</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body >
+<header class="bg-white shadow-md sticky top-0 z-30">
+  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="/" class="flex items-center z-30">
+      <Image src={logoLibertador} alt="Logo Alcaldía de Libertador" class="h-12 mr-2 w-auto" />
+    </a>
+
+    <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+      <a href="/#nuestra-gestion" class="text-azul-marino-oscuro text-subtitulo-mobile regular hover:text-amarillo-dorado transition-colors duration-300">Nuestra Gestión</a>
+      <a href="/#conoce-alcalde" class="text-azul-marino-oscuro text-subtitulo-mobile regular hover:text-amarillo-dorado transition-colors duration-300">Conoce al Alcalde</a>
+      <a href="/#logros-comunidad" class="text-azul-marino-oscuro text-subtitulo-mobile regular hover:text-amarillo-dorado transition-colors duration-300">Logros en tu Comunidad</a>
+      <a href="/#participa" class="bg-amarillo-dorado font-open-sans font-bold py-2 px-6 hover:bg-amber-600 transition-colors duration-300 rounded-md">
+        Participa
+      </a>
+    </div>
+
+    <div class="md:hidden z-40">
+      <button id="mobile-menu-button" class="text-azul-marino-oscuro focus:outline-none relative">
+        <svg id="menu-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-azul-marino-oscuro transform -translate-x-full transition-transform duration-300 ease-in-out z-20">
+    <div class="py-6 px-6 flex justify-end">
+      <button id="mobile-menu-close-button" class="text-gray-300 hover:text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="mt-6">
+      <ul class="flex flex-col items-start px-6 gap-2 space-y-4">
+        <li>
+          <a href="/#nuestra-gestion" class="text-gray-300 hover:text-white text-xl font-semibold">Nuestra Gestión</a>
+        </li>
+        <li>
+			<a href="/#conoce-alcalde" class="text-gray-300 hover:text-white text-xl font-semibold ">Conoce al Alcalde</a>
+        </li>
+		<li>
+		  <a href="/#logros-comunidad" class="text-gray-300 hover:text-white text-xl font-semibold">Logros en tu Comunidad</a>
+		</li>
+        <li>
+          <a href="/#participa" class="bg-amarillo-dorado text-azul-marino-oscuro font-open-sans font-bold py-3 px-8 rounded-md hover:bg-amber-600 transition-colors duration-300 text-xl">
+            Participa
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <main>
+		<div class="relative overflow-hidden" style="height: 95vh; width: 100%;">
+    	<Image 
+        src={heroImage} 
+        alt="Imagen de fondo de la campaña"
+        class="absolute inset-0 w-full h-full object-cover"
+        style="object-position: 70%;"
+        quality="100"
+    />
+    <div class="absolute inset-0 container mx-auto">
+        </div>
+</div>
+		<div class="absolute inset-0 container mx-auto px-6 py-24 md:py-32 lg:py-48 flex items-end md:items-center">
+			<div class="max-w-xl">
+			<h1 class="text-[48px] md:text-5xl lg:text-[90px] font-montserrat italic font-black text-[#F39C12] uppercase leading-tight">
+				“Con Dios <br /> Todo, <br /> Sin Dios <br /> Nada”
+			</h1>
+			<p class="mt-4 text-[20px] font-open-sans  md:text-[30px] text-white font-semibold"> 
+				Gonzalo “Chacho” Diaz a la <br /> Reelección de Palo Negro
+			</p>
+			</div>
+		</div>
+		</div>
+
+		<!-- intro section -->
+<div class="container mx-auto px-6 py-20">
+    <div class="flex flex-col lg:flex-row lg:items-center justify-center mb-16">
+        <h1 class="text-titulo-mobile text-azul-marino-oscuro mb-7 md:mb-0 md:text-titulo font-montserrat font-bold max-w-xl text-left animate-on-scroll" data-animation="animate-fade-up">Juntos por un Palo Negro Mejor</h1>
+        <p class="mt-4 text-parrafo font-open-sans max-w-[544px] text-left animate-on-scroll" data-animation="animate-fade-right animate-delay-500">Únase a nosotros para apoyar a nuestro candidato a la alcaldía, comprometido con fomentar el crecimiento y la unidad en Palo Negro. Juntos, podemos construir un futuro mejor para nuestra comunidad.</p>
+    </div>
+    <div class="h-[300px] lg:h-[579px]">
+        <Image 
+            class="bg-gray-800 rounded-lg mx-auto max-w-[1200px] w-full h-full object-cover object-bottom"
+            src={myImage} 
+            alt="Candidato a la alcaldía sonriendo en un evento comunitario en Palo Negro." 
+        />
+    </div>
+</div>
+
+
+
+		<!-- grid section -->
+		<div class="container  rounded mx-auto px-6 py-5 flex flex-col mb-20 ">
+			<!-- title -->
+			<div class=" rounded-lg flex flex-col items-center"> 
+				<img class="mb-20"  src="/Logo-aviones.png" alt="">
+				<h1 class="text-titulo-mobile text-azul-marino-oscuro md:text-titulo font-montserrat font-bold mb-5 text-center animate-on-scroll" data-animation="animate-fade-up animate-duration-1000">Una Gestión que Habla por Sí Sola</h1>
+				<p class="mt-4 text-parrafo text-gris-carboncillo font-open-sans font-semibold text-center animate-on-scroll" data-animation="animate-fade-up">En 3 años y 6 meses, el Municipio Libertador avanza con hechos tangibles.</p>
+			</div>
+			<!-- grid -->
+			<div class="mt-10 grid grid-cols-1 md:grid-cols-4 md:grid-rows-5 gap-6 max-w-6xl m-auto bg-white  p-4">
+
+				<div class="col-span-1 md:col-span-2 md:row-span-3 border border-gray-400 rounded overflow-hidden animate-on-scroll" data-animation="animate-fade-right animate-delay-250">
+					<div class="m-5 md:m-10">
+						<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat font-semibold my-7">31 pozos Reactivados</h2>
+						<p class="text-sm md:text-lg font-open-sans font-light text-gris-carboncillo lg:mb-10">Hemos puesto en funcionamiento 31 pozos de agua en diversas comunidades de Palo Negro. Esta iniciativa clave ha mejorado significativamente el acceso a un suministro de agua más constante y confiable para miles de familias.</p>
+					</div>
+					<div class="h-[300px] ">
+						<Image 
+						class="bg-gray-800  mx-auto w-full h-full object-cover"
+						src={agua} 
+						alt="Candidato a la alcaldía inagurando un pozo de agua en Palo Negro." />
+					</div>
+				</div>
+
+				<div class="col-span-1 md:col-span-2 md:col-start-3 md:row-span-2 border border-gray-400 rounded overflow-hidden animate-on-scroll" data-animation="animate-fade-left animate-delay-500">
+					<div class="">
+						<div class="flex flex-col-reverse lg:flex-row">
+							<div class="lg:h-[370px] lg:min-w-[220px]">
+								<Image 
+									class="bg-gray-800  mx-auto w-full h-full object-cover"
+									src={Ambulancias} 
+									alt="Ambulancias de emergencia en Palo Negro." 
+								/>
+							</div>
+							<div class="m-5 md:m-10">
+
+								<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat break-words font-semibold mb-7">5 ambulancias Operando</h2>
+								<p class="text-sm md:text-lg font-open-sans font-light text-gris-carboncillo">Para fortalecer nuestro sistema de salud se han puesto en servicio 5 nuevas ambulancias.</p>
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="col-span-1 md:row-span-2 md:col-start-1 md:row-start-4 border border-gray-400 rounded p-4 animate-on-scroll" data-animation="animate-fade-up animate-delay-750">
+
+					<h2 class="text-azul-marino-oscuro text-[28px] md:text-[20px] font-montserrat font-semibold break-words">+34800mts de colectores de agua servida cambiados</h2>
+					<Colectores class="mx-auto text-azul-marino-oscuro w-[210px] h-[210px] md:w-[100px] md:h-[100px] lg:w-[210px] lg:h-[210px]"  fill="currentColor" />
+
+				</div>
+
+				<div class="col-span-1 md:row-span-2 md:col-start-2 md:row-start-4 border border-gray-400 rounded p-6 animate-on-scroll" data-animation="animate-fade-up animate-delay-1000">
+					<h2 class="text-azul-marino-oscuro text-[28px] md:text-[20px] font-montserrat font-semibold break-words">3 Compactadores de basura adquiridos</h2>
+					<Camion class="mx-auto text-azul-marino-oscuro w-[210px] h-[210px] md:w-[100px] md:h-[100px] lg:w-[210px] lg:h-[210px]" fill="currentColor" />
+
+				</div>
+
+				<div class="col-span-1 md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-3 border border-gray-400 rounded animate-on-scroll" data-animation="animate-fade-left animate-delay-1250">
+					<div class="m-5 md:m-10">
+						<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat break-words font-semibold mb-7">84 Comedores activos</h2>
+						<p class="text-sm md:text-lg font-open-sans text-gris-carboncillo font-light lg:mb-10">Han sido establecidos 84 comedores comunitarios a lo largo del municipio, proporcionando más de <span class="font-bold">80 mil desayunos</span> desayunos mensualmente a niños, adultos mayores y personas vulnerables.</p>
+					</div>
+						<div class="h-[300px] ">
+							<Image 
+								class="mx-auto w-full h-full object-cover"
+								src={Ambulancias} 
+								alt="Ambulancias de emergencia en Palo Negro." 
+							/>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- nuestro alcalde -->
+		 <div class="bg-gray-700">
+			 <div class="container mx-auto px-6 py-20  flex flex-col max-w-[1000px]">
+
+				<div class=" flex flex-col md:flex-row items-center p-5 bg-white animate-on-scroll" data-animation="animate-fade-up"> 
+					<div class="h-[300px]  md:h-[500px]">
+						<Image 
+							class="rounded mx-auto  w-full h-full object-cover object-bottom"
+							src={Alcalde} 
+							alt="Candidato a la alcaldía abrazando a unas personas en un evento comunitario en Palo Negro." 
+						/>
+					</div>		
+					<div class="flex flex-col items-center md:m-10 justify-center bg-white">
+						<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat font-regular my-7">Una vida dedicada a Palo Negro</h2>
+
+						<p class=" text-parrafo text-gris-carboncillo max-w-[544px] font-open-sans font-light ">Desde su asunción, el alcalde  chacho Gonzalo Díaz  ha transformado Palo negro  a través de una gestión dedicada y efectiva, enfocada en el bienestar de sus ciudadanos. Esto teniendo un impacto positivo en nuestro querido municipio porque chacho es del pueblo y su pueblo le duele. </p>
+						<p class=" text-parrafo text-gris-carboncillo max-w-[544px] font-open-sans font-light "><i>"Con Dios todo sin Dios nada"</i></p>
+						<div class="flex mt-10 items-center justify-items-center gap-3">
+							<i class="fa-brands fa-x-twitter text-white bg-azul-marino-oscuro p-2 rounded-full text-3xl"></i>
+							<i class="fa-brands fa-facebook text-white bg-azul-marino-oscuro p-2 rounded-full text-3xl" ></i>
+							<i class="fa-brands fa-instagram  text-white bg-azul-marino-oscuro p-2 rounded-full text-3xl"></i>
+						</div>
+					</div>
+				</div>
+			 </div>
+
+		 </div>
+
+		 <!-- cerca de tí -->
+		 <section id="logros-comunidad" class="bg-white py-16 md:py-24">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="text-left">
+        <h2 class="text-titulo-mobile md:text-titulo font-montserrat font-bold text-azul-marino-oscuro uppercase">
+          El impacto cerca de ti
+        </h2>
+        <p class="mt-4 text-parrafo font-open-sans text-gris-carboncillo max-w-md">
+          Explora los proyectos y mejoras que hemos realizado en cada comunidad.
+        </p>
+        <div class="relative mt-8 max-w-sm">
+          <select id="comunidad-select" class="block w-full appearance-none rounded-md border border-gray-300 bg-white py-3 px-4 pr-8 leading-tight text-gris-carboncillo focus:border-amarillo-dorado focus:outline-none focus:ring-2 focus:ring-amarillo-dorado/50">
+            <option value="">Selecciona tu comunidad</option>
+            {listaComunidades.map(comunidad => (
+              <option value={comunidad.id}>{comunidad.nombre}</option>
+            ))}
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <Image 
+            class="bg-gray-800 w-full h-full rounded-lg object-cover shadow-lg"
+            src={Impacto} 
+            alt="Trabajadores en la descarga de tuberías de concreto." 
+        />
+      </div>
+    </div>
+
+    <div id="resultados-proyectos" class="m-16 grid grid-cols-1 bg sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      </div>
+  </div>	
+</section>
+	
+
+<section class="bg-slate-100 py-16 md:py-24">
+  <div class="container mx-auto px-6 flex max-w-[512px] flex-col items-center">
+    <h2 class="text-titulo-mobile md:text-titulo font-montserrat font-bold text-azul-marino-oscuro mb-8 text-center">
+      Danos tú opinion
+    </h2>
+
+    <div class="bg-white p-8 md:p-10 rounded-lg shadow-md w-full max-w-2xl">
+      <form id="opinion-form">
+
+        <div class="mb-8">
+          <p class="font-semibold text-gray-800 mb-3">Saldrá usted a votar en las próximas elecciones?</p>
+          <div class="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0">
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="votara" value="si" class="hidden peer" required>
+              <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>Sí</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="votara" value="no" class="hidden peer">
+              <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>No</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="votara" value="no_estoy_seguro" class="hidden peer">
+              <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <span>No estoy seguro/a</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <p class="font-semibold text-gray-800 mb-3">Cómo califica la gestión del actual alcalde?</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
+            {[ "Excelente", "Buena", "Regular", "Mala", "Muy mala" ].map(opcion => (
+              <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="calificacion_gestion" value={opcion.toLowerCase()} class="hidden peer" required>
+                <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <span>{opcion}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+        
+        <div class="mb-8">
+            <p class="font-semibold text-gray-800 mb-3">Apoyará usted al alcalde en su reelección?</p>
+            <div class="flex space-x-6">
+                 <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="radio" name="apoyara_reeleccion" value="si" class="hidden peer" required>
+                    <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <span>Sí</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="radio" name="apoyara_reeleccion" value="no" class="hidden peer">
+                    <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <span>No</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="mb-8">
+          <label for="sugerencia" class="block font-semibold text-gray-800 mb-3">¿Hay algo más que le gustaría comentarnos o sugerir para el municipio? (Opcional)</label>
+          <textarea id="sugerencia" name="sugerencia" rows="4" class="w-full border-2 border-gray-300 rounded-md p-2 focus:border-amarillo-dorado focus:outline-none focus:ring-1 focus:ring-amarillo-dorado/50 transition"></textarea>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <button type="submit" class="bg-amarillo-dorado font-open-sans font-bold py-3 px-10 hover:bg-amber-600 transition-colors duration-300 text-gray-900 rounded-md">
+                Enviar
+            </button>
+            <div id="form-status" class="mt-4 text-center text-sm font-semibold"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</section>
+	
+
+<footer class="bg-azul-marino-oscuro text-gray-300 font-open-sans">
+  <div class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      
+      <div class="flex flex-col items-center md:items-start">
+        <a href="/" class="flex items-center mb-4">
+          <img src="/logo-libertador.png" alt="Logo Alcaldía de Libertador" class="h-14">
+        </a>
+        <p class="text-center md:text-left text-sm">
+          Comprometidos con el crecimiento y bienestar de nuestro pueblo, Palo Negro.
+        </p>
+        <div class="flex mt-6 space-x-5">
+          <a href="#" target="_blank" class="text-gray-400 hover:text-amarillo-dorado transition-colors duration-300">
+            <i class="fa-brands fa-x-twitter text-2xl"></i>
+            <span class="sr-only">Twitter</span>
+          </a>
+          <a href="#" target="_blank" class="text-gray-400 hover:text-amarillo-dorado transition-colors duration-300">
+            <i class="fa-brands fa-facebook text-2xl"></i>
+            <span class="sr-only">Facebook</span>
+          </a>
+          <a href="#" target="_blank" class="text-gray-400 hover:text-amarillo-dorado transition-colors duration-300">
+            <i class="fa-brands fa-instagram text-2xl"></i>
+            <span class="sr-only">Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-montserrat font-bold text-white mb-4 text-lg">Navegación</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-amarillo-dorado transition-colors duration-300">Nuestra Gestión</a></li>
+          <li><a href="#logros-comunidad" class="hover:text-amarillo-dorado transition-colors duration-300">Logros en tu Comunidad</a></li>
+          <li><a href="#" class="hover:text-amarillo-dorado transition-colors duration-300">Conoce al Alcalde</a></li>
+          <li><a href="#" class="hover:text-amarillo-dorado transition-colors duration-300">Participa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-montserrat font-bold text-white mb-4 text-lg">Contacto</h3>
+        <p class="mb-2">
+          <i class="fa-solid fa-location-dot w-5 mr-2"></i>
+          Despacho de la Alcaldía, Plaza bolivar, <br>Palo Negro, Estado Aragua.
+        </p>
+        <p>
+          <i class="fa-solid fa-phone w-5 mr-2"></i>
+          (0412) 123-4567
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+      <p class="text-sm text-gray-500">
+        &copy; {new Date().getFullYear()} Alcaldía de Libertador. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  </main>
+	<script src="https://kit.fontawesome.com/d707748c4f.js" crossorigin="anonymous"></script>
+  	<script>
+  const selector = document.getElementById('comunidad-select');
+  const contenedorResultados = document.getElementById('resultados-proyectos');
+
+  selector.addEventListener('change', async (event) => {
+    const comunidadId = event.target.value;
+
+    if (!comunidadId) {
+      contenedorResultados.innerHTML = '';
+      return;
+    }
+
+    contenedorResultados.innerHTML = `<p class="col-span-full text-center text-gris-carboncillo font-semibold">Cargando proyectos...</p>`;
+
+    // Forma más robusta de construir la URL para el fetch
+    const url = new URL(window.location.origin + '/api/proyectos');
+    url.searchParams.append('comunidad', comunidadId);
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('La respuesta de la red no fue exitosa');
+      }
+      const proyectos = await response.json();
+
+      contenedorResultados.innerHTML = '';
+
+      if (proyectos.length === 0) {
+        contenedorResultados.innerHTML = `<p class="col-span-full text-center text-gris-carboncillo">No se encontraron proyectos para esta comunidad.</p>`;
+      } else {
+        proyectos.forEach(proyecto => {
+          const fechaFormateada = new Date(proyecto.fecha + 'T00:00:00').toLocaleDateString('es-VE', {
+            day: 'numeric', month: 'long', year: 'numeric'
+          });
+          const tarjetaHtml = `
+            <div class="border bg-white border-gray-200 max-w-[250px] rounded-lg overflow-hidden shadow-sm flex flex-col">
+              <img src="${proyecto.imagen || '/placeholder.jpg'}" alt="${proyecto.titulo}" class="w-full h-40 object-cover bg-gray-200">
+              <div class="p-4 flex flex-col flex-grow">
+                <p class="text-xs text-gray-500 mb-2">${fechaFormateada}</p>
+                <h3 class="font-semibold text-azul-marino-oscuro mb-2 flex-grow">${proyecto.titulo}</h3>
+                <span class="bg-azul-marino-oscuro text-white text-xs font-semibold px-3 py-1 rounded-full self-start">${proyecto.categoria}</span>
+              </div>
+            </div>
+          `;
+          contenedorResultados.insertAdjacentHTML('beforeend', tarjetaHtml);
+        });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      contenedorResultados.innerHTML = `<p class="col-span-full text-center text-red-600">Hubo un error al consultar los proyectos. Inténtelo de nuevo.</p>`;
+    }
+  });
+	</script>
+	<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+  const body = document.body;
+  const menuLinks = mobileMenu.querySelectorAll('a');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  const openMenu = () => {
+    mobileMenu.classList.remove('-translate-x-full');
+    body.classList.add('overflow-hidden');
+    menuIcon.classList.add('hidden');
+    closeIcon.classList.remove('hidden');
+  };
+
+  const closeMenu = () => {
+    mobileMenu.classList.add('-translate-x-full');
+    body.classList.remove('overflow-hidden');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+  };
+
+  // **LA CORRECCIÓN PRINCIPAL ESTÁ AQUÍ**
+  // El botón principal ahora comprueba si el menú está abierto o cerrado.
+  menuButton.addEventListener('click', () => {
+    const isMenuOpen = !mobileMenu.classList.contains('-translate-x-full');
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // El botón de cierre dentro del menú y los enlaces siempre cerrarán el menú.
+  mobileMenuCloseButton.addEventListener('click', closeMenu);
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const animationClasses = entry.target.dataset.animation.split(' ');
+          entry.target.classList.add(...animationClasses);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    elementsToAnimate.forEach(element => { observer.observe(element); });
+  });
+</script>
+
 	</body>
 </html>

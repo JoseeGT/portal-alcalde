@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "tailwindcss-animated";
+
+
+@custom-variant hover (&:hover);
+
+@theme {
+--color-azul-marino-oscuro: #1A2C42;
+  --color-verde-esmeralda: #2ECC71;
+  --color-amarillo-dorado: #F39C12;
+  --color-azul-cta: #007BFF;
+  --color-gris-carboncillo: #34495E;
+  --color-fondo-azul-claro: #E6EEF4;
+  --color-fondo-azul-nube: #DDE8EF;
+  --color-fondo-azul-nieve: #F2F8FC;
+  --color-fondo-gris-claro-suave: #ECF0F1;
+  --color-dark-section-bg: #2C3E50;
+  --color-white: #FFFFFF; /* Por si quieres una variable para el blanco */
+  --color-black: #000000; /* Por si quieres una variable para el negro */
+  
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-open-sans: 'Open Sans', sans-serif;
+  --font-oswald: 'Oswald', sans-serif;
+
+  --text-titulo: 48px;
+  --text-titulo-line-height: 1.5;
+  --text-titulo-mobile:28px;
+  --text-titulo-mobile-line-height: 1.5;
+  --text-subtitulo: 24px;
+  --text-subtitulo-line-height: 1.5;
+  --text-subtitulo-mobile: 18px;
+  --text-subtitulo-mobile-line-height: 1.5;
+  --text-parrafo: 18px;
+  --text-parrafo-line-height: 1.5;
+  --text-parrafo-mobile: 14px;
+  --text-parrafo-mobile-line-height: 1.5;
+}
+
+  #mobile-menu.open {
+    transform: translateX(0);
+  }

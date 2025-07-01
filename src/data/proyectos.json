@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "comunidad": "palo-negro-centro",
+    "nombreComunidad": "Palo Negro Centro",
+    "fecha": "2024-03-25",
+    "titulo": "Asfaltada calle Sucre en Palo Negro",
+    "descripcion": "Mejora de la vialidad para más de 100 familias.",
+    "imagen": "/images/proyectos/asfaltado-1.jpg",
+    "categoria": "Asfaltado"
+  },
+  {
+    "id": 2,
+    "comunidad": "los-aviadores",
+    "nombreComunidad": "Los Aviadores",
+    "fecha": "2024-03-22",
+    "titulo": "Entrega de balones en la cancha de Los Aviadores",
+    "descripcion": "Fomentando el deporte en la juventud de la comunidad.",
+    "imagen": "/images/proyectos/deporte-1.jpg",
+    "categoria": "Deporte"
+  },
+  {
+    "id": 3,
+    "comunidad": "palo-negro-centro",
+    "nombreComunidad": "Palo Negro Centro",
+    "fecha": "2024-03-20",
+    "titulo": "Reactivado pozo de agua en Palo Negro",
+    "descripcion": "Suministro de agua potable restablecido para el sector.",
+    "imagen": "/images/proyectos/agua-1.jpg",
+    "categoria": "Servicios Públicos"
+  },
+  {
+    "id": 4,
+    "comunidad": "santa-ana",
+    "nombreComunidad": "Santa Ana",
+    "fecha": "2024-03-18",
+    "titulo": "Jornada de vacunación en Santa Ana",
+    "descripcion": "Atención médica primaria para niños y adultos mayores.",
+    "imagen": "/images/proyectos/salud-1.jpg",
+    "categoria": "Salud"
+  }
+]
