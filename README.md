@@ -1,47 +1,80 @@
-# Astro Starter Kit: Minimal
+# Portal Web para la Campaña - Alcaldía del Municipio Libertador
 
-```sh
-npm create astro@latest -- --template minimal
+![Captura de pantalla del sitio web]([Pega aquí el enlace a una imagen de tu sitio, puedes subirla al mismo repositorio])
+
+Este proyecto es el portal web oficial para la campaña de reelección de Gonzalo "Chacho" Díaz a la alcaldía del Municipio Libertador (Palo Negro), Estado Aragua. El sitio está diseñado para mostrar los logros de la gestión, presentar al candidato y, fundamentalmente, para interactuar con la comunidad a través de un formulario de opinión.
+
+**[Ver el sitio en vivo]([Pega aquí el enlace a tu sitio desplegado en Vercel o Netlify])**
+
+---
+
+## 🚀 Características Principales
+
+* **Componentes Reutilizables:** Construido con Astro para un rendimiento óptimo y un código modular.
+* **Diseño Responsivo:** Totalmente adaptable a dispositivos móviles y de escritorio gracias a Tailwind CSS.
+* **Formulario de Opinión Interactivo:** Permite a los ciudadanos enviar sus opiniones, calificaciones y sugerencias.
+* **Backend sin Servidor:** Los datos del formulario se envían y almacenan de forma segura utilizando una API Route de Astro y **Cloud Firestore** de Firebase.
+
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+* **Framework:** [Astro](https://astro.build/)
+* **Estilos CSS:** [Tailwind CSS](https://tailwindcss.com/)
+* **Base de Datos:** [Firebase (Cloud Firestore)](https://firebase.google.com/)
+* **Despliegue:** [Netlify](https://www.netlify.com/)
+* **Entorno de Ejecución:** [Node.js](https://nodejs.org/)
+
+---
+
+## 🔧 Instalación y Puesta en Marcha
+
+Sigue estos pasos para ejecutar el proyecto en tu máquina local.
+
+### 1. Prerrequisitos
+
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior).
+
+### 2. Clonar el Repositorio
+
+```bash
+git clone [Pega aquí el enlace a tu repositorio de GitHub]
+cd portal-alcalde
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+### 3. Instalar Dependencias
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 4. Configurar Variables de Entorno
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Este proyecto necesita credenciales de Firebase para conectar con la base de datos.
 
-Any static assets, like images, can be placed in the `public/` directory.
+1.  Crea un archivo llamado `.env` en la raíz del proyecto.
+2.  Copia el contenido del archivo `.env.example` (si no lo tienes, usa esta plantilla) y pégalo en tu nuevo archivo `.env`.
+3.  Rellena los valores con tus propias credenciales de Firebase.
 
-## 🧞 Commands
+**Contenido del archivo `.env`:**
+```env
+# Credenciales del Service Account de Firebase Admin
+FIREBASE_PROJECT_ID="tu-project-id-de-firebase"
+FIREBASE_CLIENT_EMAIL="tu-client-email-de-firebase"
+FIREBASE_PRIVATE_KEY="tu-clave-privada-de-firebase"
+```
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### 5. Ejecutar el Servidor de Desarrollo
 
-## 👀 Want to learn more?
+```bash
+npm run dev
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+¡Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver el proyecto en funcionamiento!
+
+---
+
+
+

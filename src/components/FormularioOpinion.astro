@@ -85,3 +85,37 @@
   </div>
 
 </section>
+
+<script>
+  const form = document.getElementById('opinion-form');
+  const formStatus = document.getElementById('form-status');
+
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault(); // Evita que la página se recargue
+
+    formStatus.textContent = 'Enviando...';
+    formStatus.style.color = 'inherit';
+    const formData = new FormData(form);
+
+    try {
+      // Enviamos los datos a nuestra propia API en Astro
+      const response = await fetch('/api/opinion', {
+        method: 'POST',
+        body: formData
+      });
+
+      const resultText = await response.text();
+
+      if (response.ok) {
+        formStatus.textContent = resultText;
+        formStatus.style.color = 'green';
+        form.reset(); // Limpia el formulario
+      } else {
+        throw new Error(resultText);
+      }
+    } catch (error) {
+      formStatus.textContent = error.message || 'Hubo un problema. Inténtalo de nuevo.';
+      formStatus.style.color = 'red';
+    }
+  });
+</script>
