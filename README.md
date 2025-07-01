@@ -4,8 +4,6 @@
 
 Este proyecto es el portal web oficial para la campaña de reelección de Gonzalo "Chacho" Díaz a la alcaldía del Municipio Libertador (Palo Negro), Estado Aragua. El sitio está diseñado para mostrar los logros de la gestión, presentar al candidato y, fundamentalmente, para interactuar con la comunidad a través de un formulario de opinión.
 
-**[Ver el sitio en vivo]([Pega aquí el enlace a tu sitio desplegado en Vercel o Netlify])**
-
 ---
 
 ## 🚀 Características Principales
@@ -72,7 +70,7 @@ FIREBASE_PRIVATE_KEY="tu-clave-privada-de-firebase"
 npm run dev
 ```
 
-¡Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver el proyecto en funcionamiento!
+¡Abre [http://localhost:4321](http://localhost:4321) 
 
 ---
 
