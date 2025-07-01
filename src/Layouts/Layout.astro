@@ -38,10 +38,16 @@ const { title } = Astro.props;
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
+                            // 💡 PASO 1: Quitamos la clase que lo mantiene oculto.
+                            entry.target.classList.remove('opacity-0');
+
+                            // PASO 2: Ahora sí, añadimos las clases para que la animación se ejecute.
                             const animationClasses = entry.target.dataset.animation.split(' ');
                             entry.target.classList.add(...animationClasses);
+
+                            // Dejamos de observar el elemento para que no se re-anime.
                             observer.unobserve(entry.target);
-                        }
+}
                     });
                 }, { threshold: 0.15 });
                 elementsToAnimate.forEach(element => { observer.observe(element); });

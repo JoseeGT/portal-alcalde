@@ -5,7 +5,7 @@
 @custom-variant hover (&:hover);
 
 @theme {
---color-azul-marino-oscuro: #1A2C42;
+  --color-azul-marino-oscuro: #1A2C42;
   --color-verde-esmeralda: #2ECC71;
   --color-amarillo-dorado: #F39C12;
   --color-azul-cta: #007BFF;
