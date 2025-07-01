@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import Impacto from '../assets/impacto-comunidad.jpg';
+import todosLosProyectos from '../data/proyectos.json';
+const comunidadesUnicas = new Map(
+  todosLosProyectos.map(p => [p.comunidad, { id: p.comunidad, nombre: p.nombreComunidad }])
+);
+const listaComunidades = Array.from(comunidadesUnicas.values());
+---
+
+
+<section id="logros-comunidad" class="bg-white py-16 md:py-24">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="text-left">
+        <h2 class="text-titulo-mobile md:text-titulo font-montserrat font-bold text-azul-marino-oscuro uppercase">
+          El impacto cerca de ti
+        </h2>
+        <p class="mt-4 text-parrafo font-open-sans text-gris-carboncillo max-w-md">
+          Explora los proyectos y mejoras que hemos realizado en cada comunidad.
+        </p>
+        <div class="relative mt-8 max-w-sm">
+          <select id="comunidad-select" class="block w-full appearance-none rounded-md border border-gray-300 bg-white py-3 px-4 pr-8 leading-tight text-gris-carboncillo focus:border-amarillo-dorado focus:outline-none focus:ring-2 focus:ring-amarillo-dorado/50">
+            <option value="">Selecciona tu comunidad</option>
+            {listaComunidades.map(comunidad => (
+              <option value={comunidad.id}>{comunidad.nombre}</option>
+            ))}
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <Image 
+            class="bg-gray-800 w-full h-full rounded-lg object-cover shadow-lg"
+            src={Impacto} 
+            alt="Trabajadores en la descarga de tuberías de concreto." 
+        />
+      </div>
+    </div>
+
+    <div id="resultados-proyectos" class="m-16 grid grid-cols-1 bg sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      </div>
+  </div>	
+</section>
+
+<script>
+  const selector = document.getElementById('comunidad-select');
+  const contenedorResultados = document.getElementById('resultados-proyectos');
+
+  selector.addEventListener('change', async (event) => {
+    const comunidadId = event.target.value;
+
+    if (!comunidadId) {
+      contenedorResultados.innerHTML = '';
+      return;
+    }
+
+    contenedorResultados.innerHTML = `<p class="col-span-full text-center text-gris-carboncillo font-semibold">Cargando proyectos...</p>`;
+
+    // Forma más robusta de construir la URL para el fetch
+    const url = new URL(window.location.origin + '/api/proyectos');
+    url.searchParams.append('comunidad', comunidadId);
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('La respuesta de la red no fue exitosa');
+      }
+      const proyectos = await response.json();
+
+      contenedorResultados.innerHTML = '';
+
+      if (proyectos.length === 0) {
+        contenedorResultados.innerHTML = `<p class="col-span-full text-center text-gris-carboncillo">No se encontraron proyectos para esta comunidad.</p>`;
+      } else {
+        proyectos.forEach(proyecto => {
+          const fechaFormateada = new Date(proyecto.fecha + 'T00:00:00').toLocaleDateString('es-VE', {
+            day: 'numeric', month: 'long', year: 'numeric'
+          });
+          const tarjetaHtml = `
+            <div class="border bg-white border-gray-200 max-w-[250px] rounded-lg overflow-hidden shadow-sm flex flex-col">
+              <img src="${proyecto.imagen || '/placeholder.jpg'}" alt="${proyecto.titulo}" class="w-full h-40 object-cover bg-gray-200">
+              <div class="p-4 flex flex-col flex-grow">
+                <p class="text-xs text-gray-500 mb-2">${fechaFormateada}</p>
+                <h3 class="font-semibold text-azul-marino-oscuro mb-2 flex-grow">${proyecto.titulo}</h3>
+                <span class="bg-azul-marino-oscuro text-white text-xs font-semibold px-3 py-1 rounded-full self-start">${proyecto.categoria}</span>
+              </div>
+            </div>
+          `;
+          contenedorResultados.insertAdjacentHTML('beforeend', tarjetaHtml);
+        });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      contenedorResultados.innerHTML = `<p class="col-span-full text-center text-red-600">Hubo un error al consultar los proyectos. Inténtelo de nuevo.</p>`;
+    }
+  });
+</script>

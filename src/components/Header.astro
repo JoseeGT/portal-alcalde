@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import logoLibertador from '../assets/logo-libertador.png';
+
+const navLinks = [
+    { href: "/#nuestra-gestion", text: "Nuestra Gestión" },
+    { href: "/#conoce-alcalde", text: "Conoce al Alcalde" },
+    { href: "/#logros-comunidad", text: "Logros en tu Comunidad" }
+];
+---
+<header class="bg-white shadow-md sticky top-0 z-30">
+  <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="/" class="flex items-center z-30">
+      <Image src={logoLibertador} alt="Logo Alcaldía de Libertador" class="h-12 mr-2 w-auto" />
+    </a>
+
+    <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+      <a href="/#nuestra-gestion" class="text-azul-marino-oscuro text-subtitulo-mobile regular hover:text-amarillo-dorado transition-colors duration-300">Nuestra Gestión</a>
+      <a href="/#conoce-alcalde" class="text-azul-marino-oscuro text-subtitulo-mobile regular hover:text-amarillo-dorado transition-colors duration-300">Conoce al Alcalde</a>
+      <a href="/#logros-comunidad" class="text-azul-marino-oscuro text-subtitulo-mobile regular hover:text-amarillo-dorado transition-colors duration-300">Logros en tu Comunidad</a>
+      <a href="/#participa" class="bg-amarillo-dorado font-open-sans font-bold py-2 px-6 hover:bg-amber-600 transition-colors duration-300 rounded-md">
+        Participa
+      </a>
+    </div>
+
+    <div class="md:hidden z-40">
+      <button id="mobile-menu-button" class="text-azul-marino-oscuro focus:outline-none relative">
+        <svg id="menu-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-azul-marino-oscuro transform -translate-x-full transition-transform duration-300 ease-in-out z-20">
+    <div class="py-6 px-6 flex justify-end">
+      <button id="mobile-menu-close-button" class="text-gray-300 hover:text-white focus:outline-none">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="mt-6">
+      <ul class="flex flex-col items-start px-6 gap-2 space-y-4">
+        <li>
+          <a href="/#nuestra-gestion" class="text-gray-300 hover:text-white text-xl font-semibold">Nuestra Gestión</a>
+        </li>
+        <li>
+			<a href="/#conoce-alcalde" class="text-gray-300 hover:text-white text-xl font-semibold ">Conoce al Alcalde</a>
+        </li>
+		<li>
+		  <a href="/#logros-comunidad" class="text-gray-300 hover:text-white text-xl font-semibold">Logros en tu Comunidad</a>
+		</li>
+        <li>
+          <a href="/#participa" class="bg-amarillo-dorado text-azul-marino-oscuro font-open-sans font-bold py-3 px-8 rounded-md hover:bg-amber-600 transition-colors duration-300 text-xl">
+            Participa
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+  const body = document.body;
+  const menuLinks = mobileMenu.querySelectorAll('a');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  const openMenu = () => {
+    mobileMenu.classList.remove('-translate-x-full');
+    body.classList.add('overflow-hidden');
+    menuIcon.classList.add('hidden');
+    closeIcon.classList.remove('hidden');
+  };
+
+  const closeMenu = () => {
+    mobileMenu.classList.add('-translate-x-full');
+    body.classList.remove('overflow-hidden');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+  };
+
+  // **LA CORRECCIÓN PRINCIPAL ESTÁ AQUÍ**
+  // El botón principal ahora comprueba si el menú está abierto o cerrado.
+  menuButton.addEventListener('click', () => {
+    const isMenuOpen = !mobileMenu.classList.contains('-translate-x-full');
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // El botón de cierre dentro del menú y los enlaces siempre cerrarán el menú.
+  mobileMenuCloseButton.addEventListener('click', closeMenu);
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

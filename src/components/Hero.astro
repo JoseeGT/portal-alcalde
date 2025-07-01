@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import heroImage from '../assets/hero-image.jpg';
+---
+<div>
+		<div class="relative overflow-hidden" style="height: 95vh; width: 100%;">
+    	<Image 
+        src={heroImage} 
+        alt="Imagen de fondo de la campaña"
+        class="absolute inset-0 w-full h-full object-cover"
+        style="object-position: 75%;"
+        quality="100"
+    />
+    <div class="absolute inset-0 container mx-auto">
+        </div>
+</div>
+		<div class="absolute inset-0 container mx-auto px-6 py-24 md:py-32 lg:py-48 flex items-end md:items-center">
+			<div class="max-w-xl">
+			<h1 class="text-[48px] md:text-5xl lg:text-[90px] font-montserrat italic font-black text-[#F39C12] uppercase leading-tight">
+				“Con Dios <br /> Todo, <br /> Sin Dios <br /> Nada”
+			</h1>
+			<p class="mt-4 text-[20px] font-open-sans  md:text-[30px] text-white font-semibold"> 
+				Gonzalo “Chacho” Diaz a la <br /> Reelección de Palo Negro
+			</p>
+			</div>
+		</div>
+</div>

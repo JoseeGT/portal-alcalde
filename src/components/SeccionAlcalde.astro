@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import Alcalde from '../assets/alcalde.png';
+---
+    <section id="conoce-alcalde" class="bg-gray-700">
+			 <div class="container mx-auto px-6 py-20  flex flex-col max-w-[1000px]">
+
+				<div class=" flex flex-col md:flex-row items-center p-5 bg-white animate-on-scroll" data-animation="animate-fade-up"> 
+					<div class="h-[300px]  md:h-[500px]">
+						<Image 
+							class="rounded mx-auto  w-full h-full object-cover object-bottom"
+							src={Alcalde} 
+							alt="Candidato a la alcaldía abrazando a unas personas en un evento comunitario en Palo Negro." 
+						/>
+					</div>		
+					<div class="flex flex-col items-center md:m-10 justify-center bg-white">
+						<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat font-regular my-7">Una vida dedicada a Palo Negro</h2>
+
+						<p class=" text-parrafo text-gris-carboncillo max-w-[544px] font-open-sans font-light ">Desde su asunción, el alcalde  chacho Gonzalo Díaz  ha transformado Palo negro  a través de una gestión dedicada y efectiva, enfocada en el bienestar de sus ciudadanos. Esto teniendo un impacto positivo en nuestro querido municipio porque chacho es del pueblo y su pueblo le duele. </p>
+						<p class=" text-parrafo text-gris-carboncillo max-w-[544px] font-open-sans font-light "><i>"Con Dios todo sin Dios nada"</i></p>
+						<div class="flex mt-10 items-center justify-items-center gap-3">
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-x-twitter text-white bg-azul-marino-oscuro p-2 rounded-full text-3xl hover:text-amarillo-dorado transition-colors duration-300"></i>
+							</a>
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-facebook text-white bg-azul-marino-oscuro p-2 rounded-full text-3xl hover:text-amarillo-dorado transition-colors duration-300"></i>
+							</a>
+							<a href="#" target="_blank">
+								<i class="fa-brands fa-instagram  text-white bg-azul-marino-oscuro p-2 rounded-full text-3xl hover:text-amarillo-dorado transition-colors duration-300"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			 </div>
+
+	</section>

@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import Camion from '../assets/camion.svg';
+import Colectores from '../assets/colectores.svg';
+import agua from '../assets/agua1.jpg';
+import Ambulancias from '../assets/ambulancias.jpg';
+---
+<div class="container  rounded mx-auto px-6 py-5 flex flex-col mb-20 ">
+			<!-- title -->
+			<div class=" rounded-lg flex flex-col items-center"> 
+				<img class="mb-20"  src="/Logo-aviones.png" alt="">
+				<h1 class="text-titulo-mobile text-azul-marino-oscuro md:text-titulo font-montserrat font-bold mb-5 text-center animate-on-scroll" data-animation="animate-fade-up animate-duration-1000">Una Gestión que Habla por Sí Sola</h1>
+				<p class="mt-4 text-parrafo text-gris-carboncillo font-open-sans font-semibold text-center animate-on-scroll" data-animation="animate-fade-up">En 3 años y 6 meses, el Municipio Libertador avanza con hechos tangibles.</p>
+			</div>
+			<!-- grid -->
+			<div class="mt-10 grid grid-cols-1 md:grid-cols-4 md:grid-rows-5 gap-6 max-w-6xl m-auto bg-white  p-4">
+
+				<div class="col-span-1 md:col-span-2 md:row-span-3 border border-gray-400 rounded overflow-hidden animate-on-scroll" data-animation="animate-fade-right animate-delay-250">
+					<div class="m-5 md:m-10">
+						<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat font-semibold my-7">31 pozos Reactivados</h2>
+						<p class="text-sm md:text-lg font-open-sans font-light text-gris-carboncillo lg:mb-10">Hemos puesto en funcionamiento 31 pozos de agua en diversas comunidades de Palo Negro. Esta iniciativa clave ha mejorado significativamente el acceso a un suministro de agua más constante y confiable para miles de familias.</p>
+					</div>
+					<div class="h-[300px] ">
+						<Image 
+						class="bg-gray-800  mx-auto w-full h-full object-cover"
+						src={agua} 
+						alt="Candidato a la alcaldía inagurando un pozo de agua en Palo Negro." />
+					</div>
+				</div>
+
+				<div class="col-span-1 md:col-span-2 md:col-start-3 md:row-span-2 border border-gray-400 rounded overflow-hidden animate-on-scroll" data-animation="animate-fade-left animate-delay-500">
+					<div class="">
+						<div class="flex flex-col-reverse lg:flex-row">
+							<div class="lg:h-[370px] lg:min-w-[220px]">
+								<Image 
+									class="bg-gray-800  mx-auto w-full h-full object-cover"
+									src={Ambulancias} 
+									alt="Ambulancias de emergencia en Palo Negro." 
+								/>
+							</div>
+							<div class="m-5 md:m-10">
+
+								<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat break-words font-semibold mb-7">5 ambulancias Operando</h2>
+								<p class="text-sm md:text-lg font-open-sans font-light text-gris-carboncillo">Para fortalecer nuestro sistema de salud se han puesto en servicio 5 nuevas ambulancias.</p>
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="col-span-1 md:row-span-2 md:col-start-1 md:row-start-4 border border-gray-400 rounded p-4 animate-on-scroll" data-animation="animate-fade-up animate-delay-750">
+
+					<h2 class="text-azul-marino-oscuro text-[28px] md:text-[20px] font-montserrat font-semibold break-words">+34800mts de colectores de agua servida cambiados</h2>
+					<Colectores class="mx-auto text-azul-marino-oscuro w-[210px] h-[210px] md:w-[100px] md:h-[100px] lg:w-[210px] lg:h-[210px]"  fill="currentColor" />
+
+				</div>
+
+				<div class="col-span-1 md:row-span-2 md:col-start-2 md:row-start-4 border border-gray-400 rounded p-6 animate-on-scroll" data-animation="animate-fade-up animate-delay-1000">
+					<h2 class="text-azul-marino-oscuro text-[28px] md:text-[20px] font-montserrat font-semibold break-words">3 Compactadores de basura adquiridos</h2>
+					<Camion class="mx-auto text-azul-marino-oscuro w-[210px] h-[210px] md:w-[100px] md:h-[100px] lg:w-[210px] lg:h-[210px]" fill="currentColor" />
+
+				</div>
+
+				<div class="col-span-1 md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-3 border border-gray-400 rounded animate-on-scroll" data-animation="animate-fade-left animate-delay-1250">
+					<div class="m-5 md:m-10">
+						<h2 class="text-azul-marino-oscuro text-[28px]  md:text-[32px] font-montserrat break-words font-semibold mb-7">84 Comedores activos</h2>
+						<p class="text-sm md:text-lg font-open-sans text-gris-carboncillo font-light lg:mb-10">Han sido establecidos 84 comedores comunitarios a lo largo del municipio, proporcionando más de <span class="font-bold">80 mil desayunos</span> desayunos mensualmente a niños, adultos mayores y personas vulnerables.</p>
+					</div>
+						<div class="h-[300px] ">
+							<Image 
+								class="mx-auto w-full h-full object-cover"
+								src={Ambulancias} 
+								alt="Ambulancias de emergencia en Palo Negro." 
+							/>
+						</div>
+				</div>
+			</div>
+		</div>
