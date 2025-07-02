@@ -1,0 +1,21 @@
+---
+import Layout from '../Layouts/Layout.astro';
+const nombreArchivoPDF = 'periodico.pdf'; // Cambia esto por el nombre de tu archivo
+---
+
+<Layout title="Periódico Digital - Alcaldía de Libertador">
+  <div class="container mx-auto px-6 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-center text-azul-marino-oscuro">Periódico Digital</h1>
+  </div>
+  
+  <div class="w-full border-t border-b mb-12 border-gray-300 bg-gray-200">
+    <iframe
+      src={`/${nombreArchivoPDF}`}
+      class="w-full h-[80vh] border-none"
+      title="Visor del Periódico Digital de la Alcaldía de Libertador"
+    >
+      Tu navegador no soporta PDFs incrustados. 
+      <a href={`/${nombreArchivoPDF}`}>Descárgalo aquí.</a>
+    </iframe>
+  </div>
+</Layout>
