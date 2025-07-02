@@ -87,8 +87,7 @@ const navLinks = [
     closeIcon.classList.add('hidden');
   };
 
-  // **LA CORRECCIÓN PRINCIPAL ESTÁ AQUÍ**
-  // El botón principal ahora comprueba si el menú está abierto o cerrado.
+
   menuButton.addEventListener('click', () => {
     const isMenuOpen = !mobileMenu.classList.contains('-translate-x-full');
     if (isMenuOpen) {
@@ -98,7 +97,6 @@ const navLinks = [
     }
   });
 
-  // El botón de cierre dentro del menú y los enlaces siempre cerrarán el menú.
   mobileMenuCloseButton.addEventListener('click', closeMenu);
   menuLinks.forEach(link => {
     link.addEventListener('click', closeMenu);
