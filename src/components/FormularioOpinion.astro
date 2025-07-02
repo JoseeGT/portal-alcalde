@@ -5,7 +5,8 @@
     </h2>
 
     <div class="bg-white p-8 md:p-10 rounded-lg shadow-md w-full max-w-2xl">
-      <form id="opinion-form">
+      
+      <form id="opinion-form" class="transition-all duration-500 ease-in-out">
 
         <div class="mb-8">
           <p class="font-semibold text-gray-800 mb-3">Saldrá usted a votar en las próximas elecciones?</p>
@@ -35,35 +36,37 @@
         </div>
 
         <div class="mb-8">
-          <p class="font-semibold text-gray-800 mb-3">Cómo califica la gestión del actual alcalde?</p>
+          <p class="font-semibold text-gray-800 mb-3">¿Cómo califica la gestión del actual alcalde?</p>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
-            {[ "Excelente", "Buena", "Regular", "Mala", "Muy mala" ].map(opcion => (
-              <label class="flex items-center space-x-2 cursor-pointer">
-                <input type="radio" name="calificacion_gestion" value={opcion.toLowerCase()} class="hidden peer" required>
-                <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                </span>
-                <span>{opcion}</span>
-              </label>
-            ))}
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="calificacion_gestion" value="excelente" class="hidden peer" required><span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Excelente</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="calificacion_gestion" value="buena" class="hidden peer"><span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Buena</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="calificacion_gestion" value="regular" class="hidden peer"><span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Regular</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="calificacion_gestion" value="mala" class="hidden peer"><span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Mala</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+                <input type="radio" name="calificacion_gestion" value="muy mala" class="hidden peer"><span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Muy mala</span>
+            </label>
           </div>
         </div>
         
         <div class="mb-8">
-            <p class="font-semibold text-gray-800 mb-3">Apoyará usted al alcalde en su reelección?</p>
+            <p class="font-semibold text-gray-800 mb-3">¿Apoyará usted al alcalde en su reelección?</p>
             <div class="flex space-x-6">
-                 <label class="flex items-center space-x-2 cursor-pointer">
+                <label class="flex items-center space-x-2 cursor-pointer">
                     <input type="radio" name="apoyara_reeleccion" value="si" class="hidden peer" required>
-                    <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                    </span>
+                    <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
                     <span>Sí</span>
                 </label>
                 <label class="flex items-center space-x-2 cursor-pointer">
                     <input type="radio" name="apoyara_reeleccion" value="no" class="hidden peer">
-                    <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                    </span>
+                    <span class="w-5 h-5 border-2 border-gray-300 rounded-full grid place-content-center hover:border-blue-600 peer-checked:bg-blue-600 peer-checked:border-blue-600 transition"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
                     <span>No</span>
                 </label>
             </div>
@@ -75,26 +78,41 @@
         </div>
 
         <div class="flex flex-col items-center">
-            <button type="submit" class="bg-amarillo-dorado font-open-sans font-bold py-3 px-10 hover:bg-amber-600 transition-colors duration-300 text-gray-900 rounded-md">
+            <button type="submit" class="bg-amarillo-dorado font-open-sans font-bold py-3 px-10 hover:bg-amber-600 transition-colors duration-300 text-gray-900 rounded-md disabled:bg-gray-400 disabled:cursor-not-allowed">
                 Enviar
             </button>
             <div id="form-status" class="mt-4 text-center text-sm font-semibold"></div>
         </div>
       </form>
+
+      <div id="success-message" class="hidden text-center">
+        <svg class="mx-auto h-16 w-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="mt-4 text-2xl font-bold text-gray-800">¡Gracias por tu opinión!</h3>
+        <p class="mt-2 text-gray-600">Tu respuesta ha sido enviada exitosamente.</p>
+      </div>
+
     </div>
   </div>
-
 </section>
 
 <script>
   const form = document.getElementById('opinion-form');
   const formStatus = document.getElementById('form-status');
+  const successMessage = document.getElementById('success-message');
+  const submitButton = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', async function(event) {
     event.preventDefault(); // Evita que la página se recargue
 
-    formStatus.textContent = 'Enviando...';
-    formStatus.style.color = 'inherit';
+    // Deshabilitar el botón y mostrar estado de carga para evitar doble envío
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+    
+    // Limpiar mensajes de estado anteriores
+    formStatus.textContent = ''; 
+
     const formData = new FormData(form);
 
     try {
@@ -107,15 +125,32 @@
       const resultText = await response.text();
 
       if (response.ok) {
-        formStatus.textContent = resultText;
-        formStatus.style.color = 'green';
-        form.reset(); // Limpia el formulario
+        // --- INICIO DE LA ANIMACIÓN ---
+
+        // 1. Añadimos clases para que el formulario se desvanezca y encoja
+        form.classList.add('opacity-0', 'scale-95');
+
+        // 2. Esperamos a que la animación de 500ms termine
+        setTimeout(() => {
+          // 3. Ocultamos el formulario completamente para que no ocupe espacio
+          form.style.display = 'none';
+          
+          // 4. Mostramos el mensaje de éxito eliminando la clase 'hidden'
+          successMessage.classList.remove('hidden');
+        }, 500); // IMPORTANTE: Este tiempo debe coincidir con la duración de la transición en el HTML (duration-500)
+
       } else {
+        // Si hay un error en la respuesta, lo lanzamos para que lo capture el catch
         throw new Error(resultText);
       }
     } catch (error) {
+      // En caso de error, mostramos el mensaje
       formStatus.textContent = error.message || 'Hubo un problema. Inténtalo de nuevo.';
       formStatus.style.color = 'red';
+
+      // Y volvemos a habilitar el botón para que el usuario pueda intentarlo de nuevo
+      submitButton.disabled = false;
+      submitButton.textContent = 'Enviar';
     }
   });
 </script>
