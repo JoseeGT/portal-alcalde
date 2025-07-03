@@ -5,8 +5,8 @@
     "nombreComunidad": "Palo Negro Centro",
     "fecha": "2024-03-25",
     "titulo": "Asfaltada calle Sucre en Palo Negro",
-    "descripcion": "Mejora de la vialidad para más de 100 familias.",
-    "imagen": "/images/proyectos/asfaltado-1.jpg",
+    "descripcion": "Mejora de la vialidad para más de 100 familias.Mejora de la vialidad para más de 100 familias",
+    "imagen": "/images/proyectos/hero-image.jpg",
     "categoria": "Asfaltado"
   },
   {
@@ -26,7 +26,7 @@
     "fecha": "2024-03-20",
     "titulo": "Reactivado pozo de agua en Palo Negro",
     "descripcion": "Suministro de agua potable restablecido para el sector.",
-    "imagen": "/images/proyectos/agua-1.jpg",
+    "imagen": "/images/proyectos/hero-image.jpg",
     "categoria": "Servicios Públicos"
   },
   {

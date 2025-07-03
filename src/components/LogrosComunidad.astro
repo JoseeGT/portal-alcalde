@@ -40,7 +40,7 @@ const listaComunidades = Array.from(comunidadesUnicas.values());
       </div>
     </div>
 
-    <div id="resultados-proyectos" class="m-16 grid grid-cols-1 bg sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div id="resultados-proyectos" class="pt-24 place-items-center  grid grid-cols-1 bg sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
       </div>
   </div>	
 </section>
@@ -58,8 +58,7 @@ const listaComunidades = Array.from(comunidadesUnicas.values());
     }
 
     contenedorResultados.innerHTML = `<p class="col-span-full text-center text-gris-carboncillo font-semibold">Cargando proyectos...</p>`;
-
-    // Forma más robusta de construir la URL para el fetch
+    
     const url = new URL(window.location.origin + '/api/proyectos');
     url.searchParams.append('comunidad', comunidadId);
 
@@ -80,17 +79,20 @@ const listaComunidades = Array.from(comunidadesUnicas.values());
             day: 'numeric', month: 'long', year: 'numeric'
           });
           const tarjetaHtml = `
-            <div class="border bg-white border-gray-200 max-w-[250px] rounded-lg overflow-hidden shadow-sm flex flex-col">
-              <img src="${proyecto.imagen || '/placeholder.jpg'}" alt="${proyecto.titulo}" class="w-full h-40 object-cover bg-gray-200">
+            <div class="border bg-white border-gray-200 w-[275px] max-w-[300px] rounded-lg overflow-hidden shadow-sm flex flex-col h-full">
+              <img src="${proyecto.imagen || '/placeholder.jpg'}" alt="${proyecto.titulo}" class="w-full h-48 object-cover bg-gray-200">
               <div class="p-4 flex flex-col flex-grow">
                 <p class="text-xs text-gray-500 mb-2">${fechaFormateada}</p>
-                <h3 class="font-semibold text-azul-marino-oscuro mb-2 flex-grow">${proyecto.titulo}</h3>
-                <span class="bg-azul-marino-oscuro text-white text-xs font-semibold px-3 py-1 rounded-full self-start">${proyecto.categoria}</span>
+                <h3 class="font-semibold text-azul-marino-oscuro mb-2">${proyecto.titulo}</h3>
+                <p class="text-sm regular text-gris-carboncillo mb-4">${proyecto.descripcion}</p>
+                <span class="bg-azul-marino-oscuro text-white text-xs font-semibold px-3 py-1 rounded-full self-start mt-auto">${proyecto.categoria}</span>
               </div>
             </div>
           `;
           contenedorResultados.insertAdjacentHTML('beforeend', tarjetaHtml);
         });
+
+        contenedorResultados.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     } catch (error) {
       console.error('Error:', error);
