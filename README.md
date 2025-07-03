@@ -37,7 +37,7 @@ Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 18 o supe
 ### 2. Clonar el Repositorio
 
 ```bash
-git clone [Pega aquí el enlace a tu repositorio de GitHub]
+git clone https://github.com/JoseeGT/portal-alcalde.git
 cd portal-alcalde
 ```
 
@@ -70,7 +70,7 @@ FIREBASE_PRIVATE_KEY="tu-clave-privada-de-firebase"
 npm run dev
 ```
 
-¡Abre [http://localhost:4321](http://localhost:4321) 
+Abre [http://localhost:4321](http://localhost:4321) 
 
 ---
 
