@@ -1,12 +1,16 @@
-
+---
+import { Image } from 'astro:assets';
+import logoLibertador from '../assets/logo-libertador.png';
+---
 
 <footer class="bg-azul-marino-oscuro text-gray-300 font-open-sans">
   <div class="container mx-auto px-6 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       
       <div class="flex flex-col items-center md:items-start">
-        <a href="#" class="flex items-center mb-4">
-          <img src="/logo-libertador.png" alt="Logo Alcaldía de Libertador" class="h-14">
+        <a href="#" class="flex items-center mb-4  p-2 rounded-md bg-amber-50">
+          <Image src={logoLibertador} alt="Logo alcalde de Libertador" class="h-14 w-auto " />
+
         </a>
         <p class="text-center md:text-left text-sm">
           Comprometidos con el crecimiento y bienestar de nuestro pueblo, Palo Negro.
