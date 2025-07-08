@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.10",
     "astro": "^5.10.1",
     "firebase-admin": "^13.4.0",
+    "swiper": "^11.2.10",
     "tailwindcss": "^4.1.10"
   },
   "devDependencies": {

@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+
+// 1. Importa tus imágenes. Es mejor tenerlas en un array para manejarlas fácilmente.
+import sliderImg1 from '../assets/agua1.jpg'; // Reemplaza con tus imágenes
+import sliderImg2 from '../assets/agua1.jpg'; // Reemplaza con tus imágenes
+import sliderImg3 from '../assets/agua1.jpg'; // Reemplaza con tus imágenes
+
+const images = [sliderImg1, sliderImg2, sliderImg3];
+---
+
+<section class="w-full mx-auto">
+
+  <div class="swiper" style="
+      --swiper-navigation-color: #1A2C42; /* Color de las flechas */
+      --swiper-pagination-color: #FFFFFF; /* Color de los puntos */
+      --swiper-pagination-bullet-inactive-color: #999999; /* Color de los puntos inactivos */
+      --swiper-pagination-bullet-inactive-opacity: 1;
+    ">
+    <div class="swiper-wrapper">
+      {images.map(img => (
+        <div class="swiper-slide">
+          <Image src={img} alt="Imagen del slider" class="w-full h-[92vh] lg:h-[60vh] object-cover" />
+        </div>
+      ))}
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+<script>
+  // 3. Importar Swiper y los módulos que necesitas
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+  // 4. Importar los estilos base de Swiper
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  // 5. Inicializar Swiper
+  const swiper = new Swiper('.swiper', {
+    // Usar los módulos importados
+    modules: [Navigation,  Autoplay],
+    
+    // Hacer el slider infinito
+    loop: true,
+
+    // Activar el autoplay
+    autoplay: {
+      delay: 3500, // Tiempo en milisegundos entre cada slide
+      disableOnInteraction: false, // No detener el autoplay si el usuario interactúa
+    },
+
+    // Configuración de la paginación
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //   clickable: true,
+    // },
+
+    // Configuración de la navegación
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
