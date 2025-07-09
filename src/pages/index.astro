@@ -8,6 +8,7 @@ import SeccionAlcalde from '../components/SeccionAlcalde.astro';
 import LogrosComunidad from '../components/LogrosComunidad.astro';
 import FormularioOpinion from '../components/FormularioOpinion.astro';
 import Slider from '../components/slider.astro';
+import Reuniones from '../components/Reuniones.astro';
 
 // Importa los datos necesarios
 import todosLosProyectos from '../data/proyectos.json';
@@ -30,11 +31,13 @@ import myImage from '../assets/imagen1.jpg';
 
   <GestionGrid />
 
-  
   <SeccionAlcalde/>
-  <Slider />
   
+  <Slider />
+
   <LogrosComunidad listaComunidades={listaComunidades}/>
+  
+  <Reuniones />
 
   <FormularioOpinion />
 
