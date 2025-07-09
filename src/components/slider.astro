@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 
 // 1. Importa tus imágenes. Es mejor tenerlas en un array para manejarlas fácilmente.
 import sliderImg1 from '../assets/agua1.jpg'; // Reemplaza con tus imágenes
-import sliderImg2 from '../assets/agua1.jpg'; // Reemplaza con tus imágenes
-import sliderImg3 from '../assets/agua1.jpg'; // Reemplaza con tus imágenes
+import sliderImg2 from '../assets/imagen2.jpg'; // Reemplaza con tus imágenes
+import sliderImg3 from '../assets/imagen3.jpg'; // Reemplaza con tus imágenes
 
 const images = [sliderImg1, sliderImg2, sliderImg3];
 ---
@@ -20,7 +20,7 @@ const images = [sliderImg1, sliderImg2, sliderImg3];
     <div class="swiper-wrapper">
       {images.map(img => (
         <div class="swiper-slide">
-          <Image src={img} alt="Imagen del slider" class="w-full h-[92vh] lg:h-[60vh] object-cover" />
+          <Image src={img} alt="Imagen del slider" class="w-full h-[92vh] lg:h-[70vh] object-cover" />
         </div>
       ))}
     </div>
