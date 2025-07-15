@@ -7,7 +7,8 @@
    "titulo": "Bacheo calle Bolivar ",
    "descripcion": "Mejora de la vialidad.",
    "imagen": "/proyectos/bacheo-calle-bolivar1.jpg",
-   "categoria": "Asfaltado"
+   "categoria": "Asfaltado",
+   "FIELD9": ""
  },
  {
    "id": 2,
@@ -17,7 +18,8 @@
    "titulo": "Nueva iluminación para la Plaza Bolivar",
    "descripcion": "",
    "imagen": "/proyectos/luz-plaza-bolivar.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 3,
@@ -26,8 +28,9 @@
    "fecha": "2022-07-13",
    "titulo": "Sustitución de agua servida",
    "descripcion": "",
-   "imagen": "/proyectos/bacheo-calle-bolivar1.jpg",
-   "categoria": "Servicios Públicos"
+   "imagen": "/proyectos/sustitucion-calle-bolivar.jpg",
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 4,
@@ -37,7 +40,8 @@
    "titulo": "Entrega de titularidad de tierra",
    "descripcion": "",
    "imagen": "/proyectos/entregra-titulos-bello-monte.JPG",
-   "categoria": "Justicia Social"
+   "categoria": "Justicia Social",
+   "FIELD9": ""
  },
  {
    "id": 5,
@@ -47,7 +51,8 @@
    "titulo": "Despacho de tuberias de aguas servidas",
    "descripcion": "",
    "imagen": "/proyectos/tubos-bello-monte.JPG",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 6,
@@ -57,7 +62,8 @@
    "titulo": "Sustitución de agua servida",
    "descripcion": "",
    "imagen": "/proyectos/sustitucion-bello-monte.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 7,
@@ -67,7 +73,8 @@
    "titulo": "Sustitución de agua servida",
    "descripcion": "",
    "imagen": "/proyectos/sustitucion-ocumarito.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 8,
@@ -77,7 +84,8 @@
    "titulo": "Bacheo",
    "descripcion": "",
    "imagen": "/proyectos/bacheo-ocumarito1.jpg",
-   "categoria": "Asfaltado"
+   "categoria": "Asfaltado",
+   "FIELD9": ""
  },
  {
    "id": 9,
@@ -87,7 +95,8 @@
    "titulo": "Sustitución de agua servida",
    "descripcion": "",
    "imagen": "/proyectos/sustitucion-ocumarito2.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 10,
@@ -97,7 +106,8 @@
    "titulo": "Sustitución de agua servida Calle bermudez",
    "descripcion": "",
    "imagen": "/proyectos/sustitucion-ocumarito-calle-bermudez.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 11,
@@ -107,7 +117,8 @@
    "titulo": "Reparacion de cableado",
    "descripcion": "",
    "imagen": "/proyectos/reparacion-cable-ocumarito.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  },
  {
    "id": 12,
@@ -117,6 +128,18 @@
    "titulo": "Reparación bote de Agua",
    "descripcion": "",
    "imagen": "/proyectos/reparacion-aguas-blancas-ocumarito.jpg",
-   "categoria": "Servicios Públicos"
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
+ },
+ {
+   "id": 13,
+   "comunidad": "cañada",
+   "nombreComunidad": "La Cañada",
+   "fecha": "2024-04-28",
+   "titulo": "Reparacion del Pozo Surtidor de la comunidad",
+   "descripcion": "",
+   "imagen": "/proyectos/pozo-la-cañada.JPG",
+   "categoria": "Servicios Públicos",
+   "FIELD9": ""
  }
 ]
