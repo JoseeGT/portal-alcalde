@@ -5,7 +5,7 @@
    "nombreComunidad": "Palo Negro Centro",
    "fecha": "2022-04-01",
    "titulo": "Bacheo calle Bolivar ",
-   "descripcion": "Mejora de la vialidad de la calle Bolivar para mejorar la movilidad en esta calle comercial.",
+   "descripcion": "Mejora de la vialidad.",
    "imagen": "/proyectos/bacheo-calle-bolivar1.jpg",
    "categoria": "Asfaltado"
  },
@@ -26,7 +26,97 @@
    "fecha": "2022-07-13",
    "titulo": "Sustitución de agua servida",
    "descripcion": "",
-   "imagen": "/proyectos/sustitucion-calle-bolivar.jpg",
+   "imagen": "/proyectos/bacheo-calle-bolivar1.jpg",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 4,
+   "comunidad": "bello-monte",
+   "nombreComunidad": "Bello monte",
+   "fecha": "2024-08-29",
+   "titulo": "Entrega de titularidad de tierra",
+   "descripcion": "",
+   "imagen": "/proyectos/entregra-titulos-bello-monte.JPG",
+   "categoria": "Justicia Social"
+ },
+ {
+   "id": 5,
+   "comunidad": "bello-monte",
+   "nombreComunidad": "Bello monte",
+   "fecha": "2024-04-05",
+   "titulo": "Despacho de tuberias de aguas servidas",
+   "descripcion": "",
+   "imagen": "/proyectos/tubos-bello-monte.JPG",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 6,
+   "comunidad": "bello-monte",
+   "nombreComunidad": "Bello monte",
+   "fecha": "2024-08-24",
+   "titulo": "Sustitución de agua servida",
+   "descripcion": "",
+   "imagen": "/proyectos/sustitucion-bello-monte.jpg",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 7,
+   "comunidad": "ocumarito",
+   "nombreComunidad": "Ocumarito",
+   "fecha": "2022-08-19",
+   "titulo": "Sustitución de agua servida",
+   "descripcion": "",
+   "imagen": "/proyectos/sustitucion-ocumarito.jpg",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 8,
+   "comunidad": "ocumarito",
+   "nombreComunidad": "Ocumarito",
+   "fecha": "2022-03-16",
+   "titulo": "Bacheo",
+   "descripcion": "",
+   "imagen": "/proyectos/bacheo-ocumarito1.jpg",
+   "categoria": "Asfaltado"
+ },
+ {
+   "id": 9,
+   "comunidad": "ocumarito",
+   "nombreComunidad": "Ocumarito",
+   "fecha": "2025-07-14",
+   "titulo": "Sustitución de agua servida",
+   "descripcion": "",
+   "imagen": "/proyectos/sustitucion-ocumarito2.jpg",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 10,
+   "comunidad": "ocumarito",
+   "nombreComunidad": "Ocumarito",
+   "fecha": "2022-08-24",
+   "titulo": "Sustitución de agua servida Calle bermudez",
+   "descripcion": "",
+   "imagen": "/proyectos/sustitucion-ocumarito-calle-bermudez.jpg",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 11,
+   "comunidad": "ocumarito",
+   "nombreComunidad": "Ocumarito",
+   "fecha": "2022-08-23",
+   "titulo": "Reparacion de cableado",
+   "descripcion": "",
+   "imagen": "/proyectos/reparacion-cable-ocumarito.jpg",
+   "categoria": "Servicios Públicos"
+ },
+ {
+   "id": 12,
+   "comunidad": "ocumarito",
+   "nombreComunidad": "Ocumarito",
+   "fecha": "2022-08-20",
+   "titulo": "Reparación bote de Agua",
+   "descripcion": "",
+   "imagen": "/proyectos/reparacion-aguas-blancas-ocumarito.jpg",
    "categoria": "Servicios Públicos"
  }
 ]
