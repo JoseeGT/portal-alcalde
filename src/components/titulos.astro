@@ -1,0 +1,41 @@
+---
+// src/components/EntregaTitulos.astro
+
+// Asegúrate de que la ruta a tu imagen sea correcta.
+const imageUrl = "tierras.jpg"; 
+---
+
+<section class="relative bg-gray-900 text-white overflow-hidden">
+  
+  <div class="absolute inset-0">
+    <img 
+      src={imageUrl} 
+      alt="Familias recibiendo títulos de propiedad" 
+      class="w-full h-full object-cover object-left"
+    />
+  </div>
+  <div class="absolute inset-0 bg-black/30"></div>
+
+
+  <div class="
+    relative md:backdrop-blur-[3px] 
+    bg-[#003351]/30   
+    md:bg-[#003351]/50              
+    h-[70vh] md:h-screen w-full                 
+    lg:w-1/2 lg:ml-auto              
+    flex flex-col justify-center    
+    p-8 md:p-16 text-left lg:text-left 
+  ">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white font-montserrat">
+        Un Acto de Justicia Social
+      </h2>
+      
+      <div class="w-24 h-1 bg-amarillo-dorado my-4 mx-auto lg:mx-0"></div>
+      
+      <p class="text-parrafo font-open-sans font-normal text-gray-200 max-w-[544px] lg:mt-6 ">
+        Con la entrega de más de 800 títulos de propiedad, hacemos realidad el sueño de ser dueños de sus terrenos a familias que han esperado por décadas. Un paso firme hacia la equidad y la seguridad para nuestra gente.
+      </p>
+    </div>
+  </div>
+</section>

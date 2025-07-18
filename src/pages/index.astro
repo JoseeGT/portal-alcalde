@@ -1,5 +1,4 @@
 ---
-// Importa el Layout y todos los componentes que vas a usar
 import Layout from '../Layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Intro from '../components/Intro.astro';
@@ -9,11 +8,11 @@ import LogrosComunidad from '../components/LogrosComunidad.astro';
 import FormularioOpinion from '../components/FormularioOpinion.astro';
 import Slider from '../components/slider.astro';
 import Reuniones from '../components/Reuniones.astro';
+import Titulos from '../components/titulos.astro';
+import VideoRecuerdo from '../components/VideoRecuerdo.astro';
 
-// Importa los datos necesarios
 import todosLosProyectos from '../data/proyectos.json';
 
-// La lógica para preparar los datos se queda aquí
 const comunidadesUnicas = new Map(
   todosLosProyectos.map(p => [p.comunidad, { id: p.comunidad, nombre: p.nombreComunidad }])
 );
@@ -30,7 +29,9 @@ import myImage from '../assets/imagen1.jpg';
   <Intro image={myImage} />
 
   <GestionGrid />
-
+  
+  <Titulos />
+  <VideoRecuerdo />
   <SeccionAlcalde/>
   
   <Slider />
