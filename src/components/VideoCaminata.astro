@@ -1,0 +1,32 @@
+---
+// src/components/VideoVertical.astro
+
+// Te recomiendo usar un video que haya sido grabado en vertical.
+const videoUrl = "/videos/caminata.mp4";
+---
+
+<section class="bg-white text-gray-800 py-8 sm:py-12"> <div class="max-w-screen-xl mx-auto px-4">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+      
+      <div class=" text-white p-8 lg:p-12"> <h2 class="text-3xl md:text-4xl lg:text-5xl  text-azul-marino-oscuro mb-4 md:text-titulo font-montserrat font-bold text-center lg:text-left">
+          El Alcalde del Pueblo
+        </h2>
+        <p class="hidden lg:block text-parrafo font-open-sans text-gris-carboncillo leading-relaxed mt-4">
+          Más que un alcalde, un servidor cuyo trabajo se inspira en el abrazo de su pueblo. Cada paso es una muestra de un liderazgo cercano y auténtico, dedicado a transformar las necesidades de la gente en realidades y construir juntos un futuro de bienestar.
+        </p>
+      </div>
+
+      <div class="w-full max-w-[350px] mx-auto aspect-[9/16] shadow-2xl overflow-hidden bg-black lg:order-last">
+        <video 
+          class="w-full h-full object-cover" 
+          src={videoUrl}  
+          playsinline
+          controls
+        >
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
