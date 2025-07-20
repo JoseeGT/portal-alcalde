@@ -22,7 +22,7 @@ La memoria de nuestro pueblo es clara. Recordamos la gestión anterior por sus h
       </div>
 
       <div class="w-full max-w-[350px] mx-auto aspect-[9/16] shadow-2xl overflow-hidden bg-black">
-        <video 
+        <video id="miVideo" 
           class="w-full h-full object-cover" 
           src={videoUrl}   
           playsinline
@@ -35,3 +35,30 @@ La memoria de nuestro pueblo es clara. Recordamos la gestión anterior por sus h
     </div>
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('miVideo');
+
+    if (!video) {
+      return;
+    }
+
+    const options = {
+      threshold: 0.5 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          video.pause(); // Pausamos el video
+        }
+
+         else {
+           video.play();
+         }
+      });
+    }, options);
+
+    observer.observe(video);
+  });
+</script>

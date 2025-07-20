@@ -18,7 +18,7 @@ const videoUrl = "/videos/caminata.mp4";
       </div>
 
       <div class="w-full max-w-[350px] mx-auto aspect-[9/16] shadow-2xl overflow-hidden bg-black lg:order-last">
-        <video 
+        <video id="miVideo" 
           class="w-full h-full object-cover" 
           src={videoUrl}  
           playsinline
@@ -30,3 +30,31 @@ const videoUrl = "/videos/caminata.mp4";
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('miVideo');
+
+    if (!video) {
+      return;
+    }
+
+    const options = {
+      threshold: 0.5 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          video.pause(); // Pausamos el video
+        }
+
+         else {
+           video.play();
+         }
+      });
+    }, options);
+
+    observer.observe(video);
+  });
+</script>
