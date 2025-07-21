@@ -15,8 +15,8 @@
   --color-fondo-azul-nieve: #F2F8FC;
   --color-fondo-gris-claro-suave: #ECF0F1;
   --color-dark-section-bg: #2C3E50;
-  --color-white: #FFFFFF; /* Por si quieres una variable para el blanco */
-  --color-black: #000000; /* Por si quieres una variable para el negro */
+  --color-white: #FFFFFF; 
+  --color-black: #000000;
   
   --font-montserrat: 'Montserrat', sans-serif;
   --font-open-sans: 'Open Sans', sans-serif;
