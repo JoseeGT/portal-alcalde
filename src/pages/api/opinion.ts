@@ -1,39 +1,35 @@
-import type { APIRoute } from 'astro';
-
 export const prerender = false;
-// Solo necesitamos 'db' de nuestro archivo de configuración
+
+// Importamos la instancia de la base de datos de Firebase
 import { db } from '../../lib/firebase/server';
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST = async ({ request }) => {
   const formData = await request.formData();
 
   const votara = formData.get('votara')?.toString();
   const calificacion_gestion = formData.get('calificacion_gestion')?.toString();
+  
   const apoyara_reeleccion = formData.get('apoyara_reeleccion')?.toString();
   const sugerencia = formData.get('sugerencia')?.toString();
 
-  if (!votara || !calificacion_gestion || !apoyara_reeleccion) {
-    return new Response("Faltan campos requeridos", { status: 400 });
+  if (!votara || !calificacion_gestion) {
+    return new Response("Faltan campos requeridos (votará, calificación)", { status: 400 });
   }
 
   try {
-    // ---- CAMBIO CLAVE AQUÍ ----
-    // En lugar de addDoc(collection(...)), usamos el método .add()
-    // directamente sobre la referencia a la colección.
     const docRef = await db.collection("opiniones").add({
       votara,
       calificacion_gestion,
-      apoyara_reeleccion,
-      sugerencia,
-      fecha: new Date(), // Guardamos la fecha del envío
+      apoyara_reeleccion: apoyara_reeleccion || null,
+      sugerencia: sugerencia || null,
+      fecha: new Date(),
     });
-    // ---- FIN DEL CAMBIO ----
     
-    console.log("Document written with ID: ", docRef.id);
+    console.log("Documento guardado con ID: ", docRef.id);
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Error al añadir el documento: ", e);
     return new Response("Error al guardar la opinión", { status: 500 });
   }
 
   return new Response("Opinión recibida. ¡Gracias!", { status: 200 });
-};
+};  
