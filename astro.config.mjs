@@ -10,7 +10,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
+  site: 'https://gonzalochachodiaz.com',
   adapter: netlify(),
   integrations: [
           partytown({

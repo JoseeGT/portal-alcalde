@@ -1,31 +1,49 @@
 ---
+// src/Layouts/Layout.astro
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-// Props que el layout puede recibir de cada página
-interface Props {
-	title: string;
+// ✅ PASO 1: AÑADE description E image A LAS PROPS
+export interface Props {
+    title: string;
+    description: string;
+    image?: string;
 }
 
-const { title } = Astro.props;
+// Asigna una imagen por defecto si no se especifica una
+const { title, description, image = '/imagen-por-defecto.jpg' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/Logo_Aviones.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{title}</title>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/Logo_Aviones.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        
+        <meta name="description" content={description} />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-   		<script is:inline src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.site)} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <script is:inline src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
         <script src="https://kit.fontawesome.com/d707748c4f.js" crossorigin="anonymous" is:inline></script>
-        <!-- Google tag (gtag.js) -->
         <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-G-1PM2E1D893"
@@ -39,13 +57,13 @@ const { title } = Astro.props;
 
         gtag("config", "G-1PM2E1D893");
         </script>
-	</head>
+    </head>
 
-	<body>
+    <body>
         <Header />
-		<main>
+        <main>
             <slot />
-		</main>
+        </main>
         <Footer />
 
         <script>
